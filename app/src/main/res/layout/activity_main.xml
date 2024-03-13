@@ -5,8 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="#c1eff4"
 
     >
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="774dp"
+        android:layout_height="393dp"
+        android:alpha=".69"
+        app:srcCompat="@drawable/RoomiesStock"
+        tools:layout_editor_absoluteX="-112dp"
+        tools:layout_editor_absoluteY="-162dp"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/roomies"
@@ -14,23 +25,14 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Roomies"
-        android:textSize="40"
+        android:textColor="@color/white"
+        android:textSize="60"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.279" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="411dp"
-       />
+        app:layout_constraintVertical_bias="0.167" />
 
     <EditText
         android:id="@+id/phoneLogin"
@@ -41,7 +43,7 @@
         android:text="phone number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="267dp" />
+        tools:layout_editor_absoluteY="260dp" />
 
     <EditText
         android:id="@+id/passwordLogin"
@@ -52,15 +54,31 @@
         android:text="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="343dp" />
+        tools:layout_editor_absoluteY="320dp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="126dp"
+        android:layout_height="49dp"
+        android:background="#0097a7"
         android:text="Create Account"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="464dp" />
+        tools:layout_editor_absoluteY="460dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#0097a7"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="391dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
