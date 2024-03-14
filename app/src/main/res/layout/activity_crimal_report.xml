@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accept"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="412dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="322dp"
+        android:layout_height="99dp"
+        android:text="By checking this box, you affirm and certify that you are not a convicted felon and that you have never been convicted of a felony offense in any jurisdiction. You understand that providing false information may result in a ban from the platform."
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
