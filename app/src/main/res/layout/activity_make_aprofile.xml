@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CFFAFF"
     tools:context=".MakeAProfile">
 
     <ImageView
@@ -24,8 +25,9 @@
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="238dp" />
 
     <EditText
         android:id="@+id/userEmail"
@@ -35,8 +37,9 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="email"
-        app:layout_constraintTop_toBottomOf="@+id/userName"
-        tools:layout_editor_absoluteX="100dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -53,16 +56,21 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#0097a7"
         android:text="Continue"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="515dp" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="502dp" />
 
     <RadioButton
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get email notifications"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="435dp" />
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="423dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
