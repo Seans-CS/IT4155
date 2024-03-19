@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MyTestApp</string>
     <string name="title_activity_profile_creation">ProfileCreation</string>
+    <string name="Roomies">Roomies</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -43,4 +44,12 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="get_email_notifications">Get email notifications</string>
+    <string name="logout">Logout</string>
 </resources>

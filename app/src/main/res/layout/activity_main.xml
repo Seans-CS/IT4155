@@ -1,84 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#c1eff4"
-
-    >
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="774dp"
-        android:layout_height="393dp"
-        android:alpha=".69"
-        app:srcCompat="@drawable/RoomiesStock"
-        tools:layout_editor_absoluteX="-112dp"
-        tools:layout_editor_absoluteY="-162dp"
-        tools:visibility="visible" />
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/roomies"
+        android:id="@+id/userDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Roomies"
-        android:textColor="@color/white"
-        android:textSize="60"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
-
-    <EditText
-        android:id="@+id/phoneLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        android:text="phone number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="260dp" />
-
-    <EditText
-        android:id="@+id/passwordLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="320dp" />
+        android:text="Hello World!" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="126dp"
-        android:layout_height="49dp"
-        android:background="#0097a7"
-        android:text="Create Account"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="460dp" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#0097a7"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="391dp" />
+        android:text="@string/logout"
+        android:id="@+id/logoutButton"
+        android:layout_width='wrap_content'
+        android:layout_height="wrap_content" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
