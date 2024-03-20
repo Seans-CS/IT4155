@@ -19,6 +19,7 @@
         tools:visibility="visible"
         android:gravity="top|center"/>
 
+
     <TextView
         android:id="@+id/roomies"
         android:layout_width="wrap_content"
@@ -31,7 +32,6 @@
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintVertical_bias="0.167" />
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
