@@ -52,4 +52,9 @@
     <string name="name">Name</string>
     <string name="get_email_notifications">Get email notifications</string>
     <string name="logout">Logout</string>
+    <string name="roommate_match">Roomate Match</string>
+    <string name="match">Match</string>
+    <string name="messages">Messages</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

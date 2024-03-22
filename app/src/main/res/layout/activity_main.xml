@@ -1,143 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CFFAFF"
-    android:backgroundTint="#CFFAFF"
-    android:foregroundTint="#CD2525"
-    android:gravity="right"
-
     android:orientation="vertical"
-    android:paddingTop="15px"
-    android:paddingRight="15px"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width='100dp'
-        android:layout_height="45dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="#0097a7"
-        android:paddingRight="12dp"
-        android:text="@string/logout"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF" />
-
     <TextView
-        android:id="@+id/userDetails"
+        android:id="@+id/user_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Hello World"
+        />
+
+    <Button
+        android:id="@+id/logout"
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="121dp"
-        android:layout_marginEnd="5dp"
-        android:paddingTop="15px"
-        android:text="Start Matching!"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="48sp"
-        android:textStyle="bold" />
+        android:background="@color/white"
+        android:id="@+id/bottomNav"
+        app:menu="@menu/bottom_nav"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="249dp"
-        android:layout_height="295dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="138dp"
-        android:layout_marginEnd="78dp"
-        android:cropToPadding="true"
-        android:rotationX="4"
-        android:src="@drawable/test_homepage" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userDetails"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="58dp"
-        android:background="#0097a7"
-        android:text="Yes"
-        android:textColor="#FFFFFF" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userDetails"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="210dp"
-        android:background="#0097a7"
-        android:text="No"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#473232" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        style="@android:style/Widget.ImageButton"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="318dp"
-        android:layout_marginTop="663dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="25dp"
-        android:background="#CFFAFF"
-        android:cropToPadding="true"
-        android:foregroundTint="#CD1818"
-        android:scaleType="fitCenter"
-        android:src="@android:drawable/ic_dialog_email"
-        android:tint="#0097a7"
-        android:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="61dp"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="665dp"
-        android:layout_marginBottom="16dp"
-        android:background="#CFFAFF"
-        android:foregroundGravity="center"
-        android:scaleType="fitCenter"
-        android:src="@android:drawable/btn_star"
-        android:tint="#0097a7" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="45dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="664dp"
-        android:layout_marginBottom="15dp"
-        android:background="#CFFAFF"
-        android:scaleType="fitCenter"
-        android:src="@android:drawable/ic_menu_edit"
-        android:tint="#0097a7" />
-
-
-</RelativeLayout>
+</LinearLayout>
