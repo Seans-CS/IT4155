@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CFFAFF">
+    android:background="#005035">
 
     <RadioButton
         android:id="@+id/radioButton2"
         android:layout_width="84dp"
         android:layout_height="33dp"
         android:text="Accept"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteX="119dp"
         tools:layout_editor_absoluteY="392dp" />
 
@@ -18,18 +19,21 @@
         android:id="@+id/textView"
         android:layout_width="293dp"
         android:layout_height="248dp"
+        android:drawableTint="#FFFFFF"
         android:text="By checking this box, you affirm and certify that you are not a convicted felon and that you have never been convicted of a felony offense in any jurisdiction. You understand that providing false information may result in a ban from the platform."
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="193dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="196dp" />
 
     <RadioButton
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deny"
+        android:textColor="#FFFFFF"
         tools:layout_editor_absoluteX="215dp"
         tools:layout_editor_absoluteY="393dp" />
 

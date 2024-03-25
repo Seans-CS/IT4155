@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:text="ROOMIES"
             android:textColor="#A49665"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -125,6 +126,7 @@
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Logout" />
