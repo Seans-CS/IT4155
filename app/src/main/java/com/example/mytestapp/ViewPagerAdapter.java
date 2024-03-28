@@ -15,14 +15,15 @@ public class ViewPagerAdapter  extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 0: return new Profile();
-            case 1: return new Match();
-            case 2: return new Messages();
+            case 1: return new Apartments();
+            case 2: return new Match();
+            case 3: return new Messages();
             default: return new Match();
         }
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }

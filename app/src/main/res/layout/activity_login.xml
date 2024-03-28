@@ -58,7 +58,7 @@
         android:layout_gravity="center">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
+            android:id="@+id/userPassword"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:ems="10"

@@ -71,11 +71,14 @@ public class MainActivity  extends AppCompatActivity {
               if (id == R.id.bottom_nav_profile){
                   viewPager2.setCurrentItem(0);
               }
-              else if (id == R.id.bottom_nav_match){
+              else if (id == R.id.bottom_nav_apts){
                   viewPager2.setCurrentItem(1);
               }
-              else if (id == R.id.bottom_nav_messages){
+              else if (id == R.id.bottom_nav_match){
                   viewPager2.setCurrentItem(2);
+              }
+              else if(id == R.id.bottom_nav_messages){
+                  viewPager2.setCurrentItem(3);
               }
               return false;
           }
@@ -89,11 +92,15 @@ public class MainActivity  extends AppCompatActivity {
                       bottomNavigationView.getMenu().findItem(R.id.bottom_nav_profile).setChecked(true);
                       break;
                   case 1:
-                      bottomNavigationView.getMenu().findItem(R.id.bottom_nav_match).setChecked(true);
+                      bottomNavigationView.getMenu().findItem(R.id.bottom_nav_apts).setChecked(true);
                       break;
                   case 2:
+                      bottomNavigationView.getMenu().findItem(R.id.bottom_nav_match).setChecked(true);
+                      break;
+                  case 3:
                       bottomNavigationView.getMenu().findItem(R.id.bottom_nav_messages).setChecked(true);
                       break;
+
               }
               super.onPageSelected(position);
           }
