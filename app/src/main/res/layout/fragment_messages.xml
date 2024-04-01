@@ -5,11 +5,37 @@
     android:layout_height="match_parent"
     tools:context=".Messages">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize='30sp'
-        android:text="Fragment Messages" />
+        android:layout_height="match_parent">
 
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#005035"
+            android:titleTextColor="@color/white">
+        </Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </EditText>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 </FrameLayout>

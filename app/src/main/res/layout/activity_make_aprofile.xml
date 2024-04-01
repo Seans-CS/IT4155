@@ -7,14 +7,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:background="#005035"
         android:gravity="center"
-        android:background="@color/black"
-        android:text="@string/Roomies"
-        android:textColor="@color/white"
-        android:textSize="30sp"/>
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROOMIES"
+            android:textColor="#A49665"
+            android:textSize="34sp"
+            android:textStyle="normal"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_profile_upload"
+        android:layout_width="209dp"
+        android:layout_height="199dp"
+        android:layout_below="@id/banner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/profile_placeholder"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -89,6 +110,7 @@
         android:id="@+id/buttonCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#A49665"
         android:layout_gravity="bottom|center"
         android:text="Continue" />
 
