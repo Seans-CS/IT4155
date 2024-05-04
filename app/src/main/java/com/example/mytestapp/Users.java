@@ -2,13 +2,16 @@ package com.example.mytestapp;
 
 public class Users {
 
-    String firstName, lastName, age, major;
+    String firstName, lastName, major, age, gender, bio;
 
-    public Users(String firstName, String lastName, String age, String major) {
+    public Users(String firstName, String lastName, String age, String major, String gender, String bio) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.major = major;
+        this.gender = gender;
+        this.bio = bio;
+
     }
 
     public Users() {
@@ -45,4 +48,13 @@ public class Users {
     public void setMajor(String major) {
         this.major = major;
     }
+
+    public String getGender(){return gender; }
+
+    public void setGender(String gender){this.gender = gender; }
+
+    public String getBio(){ return bio; }
+
+    public void setBio(String bio){this.bio = bio; }
+
 }

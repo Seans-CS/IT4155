@@ -73,7 +73,7 @@ public class MakeAProfile extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(MakeAProfile.this, "Account created successfully.",
                                             Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                                    Intent intent = new Intent(getApplicationContext(), Preferences.class);
                                     startActivity(intent);
                                     finish();
 
