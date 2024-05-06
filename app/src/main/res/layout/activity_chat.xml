@@ -1,0 +1,84 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <!-- RecyclerView for displaying messages -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#005035"
+        app:titleTextColor="#FFFFFF">
+
+        <!-- User's name -->
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/editTextButtonContainer"
+        android:layout_below="@id/toolbar"
+        android:padding="8dp"
+        android:textSize = "28dp"
+        tools:listitem="@layout/list_item_user" />
+
+    <!-- Container for EditText and Button -->
+    <LinearLayout
+        android:id="@+id/editTextButtonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <!-- EditText for typing messages -->
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_weight="1"
+            android:hint="Type a message"
+            android:maxLines="3"
+            android:inputType="textMultiLine"
+            android:background="@android:color/white" />
+
+        <!-- Button to send message -->
+        <Button
+            android:id="@+id/buttonSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#005035"
+            android:textColor="#FFFFFF"
+            android:text="Send" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonBack"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="68dp"
+        android:layout_height="32dp"
+        android:background="#A49665"
+        android:text="Back"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

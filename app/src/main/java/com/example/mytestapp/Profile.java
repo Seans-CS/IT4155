@@ -37,16 +37,19 @@ public class Profile extends Fragment {
 
         context = getActivity();
 
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        profileName = rootView.findViewById(R.id.profileName);
+        profileBio = rootView.findViewById(R.id.profileBio);
+
+        return rootView;
     }
 
+    @Override
     public void onStart(){
         super.onStart();
         String id;
-
-        profileName = context.findViewById(R.id.profileName);
-        profileBio = context.findViewById(R.id.profileBio);
 
         currUser = FirebaseAuth.getInstance().getCurrentUser();
         assert currUser != null;
@@ -58,9 +61,10 @@ public class Profile extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
-                assert user != null;
-                profileName.setText(String.format("%s, %s", user.firstName, user.age));
-                profileBio.setText(user.bio);
+                if (user != null) {
+                    profileName.setText(String.format("%s, %s", user.getFirstName(), user.getAge()));
+                    profileBio.setText(user.getBio());
+                }
             }
 
             @Override
@@ -69,19 +73,13 @@ public class Profile extends Fragment {
             }
         });
 
-
-
-
-
-
-
-        Button btn = (Button) context.findViewById(R.id.buttonPreferences);
-        Button logoutBtn = (Button) context.findViewById(R.id.logoutButton);
+        Button btn = getView().findViewById(R.id.buttonPreferences);
+        Button logoutBtn = getView().findViewById(R.id.logoutButton);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Preferences.class);
+                Intent intent = new Intent(getActivity(), Preferences.class);
                 startActivity(intent);
             }
         });
@@ -90,10 +88,9 @@ public class Profile extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(context, Login.class);
+                Intent intent = new Intent(getActivity(), Login.class);
                 startActivity(intent);
             }
         });
     }
-
 }

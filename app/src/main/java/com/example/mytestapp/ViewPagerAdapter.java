@@ -17,7 +17,7 @@ public class ViewPagerAdapter  extends FragmentStateAdapter {
             case 0: return new Profile();
             case 1: return new ApartmentsFragment();
             case 2: return new Match();
-            case 3: return new Messages();
+            case 3: return new MessagingFragment();
             default: return new Match();
         }
     }

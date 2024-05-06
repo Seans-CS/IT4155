@@ -56,7 +56,7 @@ public class ApartmentsFragment extends Fragment implements OnMapReadyCallback, 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Apartment selectedApartment = apartments.get(position);
                 LatLng location = selectedApartment.getLocation();
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 6f));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f));
             }
         });
 
@@ -75,7 +75,7 @@ public class ApartmentsFragment extends Fragment implements OnMapReadyCallback, 
             }
 
             if (!apartments.isEmpty()) {
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(apartments.get(0).getLocation(), 12f));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(apartments.get(0).getLocation(), 15f));
             }
         } else {
             Toast.makeText(getContext(), "Map is not available", Toast.LENGTH_SHORT).show();
