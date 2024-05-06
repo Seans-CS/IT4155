@@ -1,17 +1,15 @@
 package com.example.mytestapp;
 
 import android.content.Context;
+import android.widget.Toast;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,24 +17,48 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApartmentsFragment extends Fragment implements OnMapReadyCallback {
+public class ApartmentsFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
+    private ListView listView;
+    private ArrayAdapter<String> adapter;
+    private List<Apartment> apartments;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_apartments, container, false);
 
-        // Programmatically create SupportMapFragment
+        listView = rootView.findViewById(R.id.listView);
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1);
+        listView.setAdapter(adapter);
+
+        apartments = new ArrayList<>();
+        apartments.add(new Apartment("Rush Student Living", new LatLng(35.3026, -80.7276)));
+        apartments.add(new Apartment("University Crossings Charlotte", new LatLng(35.3005, -80.7323)));
+        apartments.add(new Apartment("The Edge", new LatLng(35.3107, -80.7245)));
+
+        for (Apartment apartment : apartments) {
+            adapter.add(apartment.getName());
+        }
+
         SupportMapFragment mapFragment = SupportMapFragment.newInstance();
         getChildFragmentManager().beginTransaction().replace(R.id.mapContainer, mapFragment).commit();
         mapFragment.getMapAsync(this);
+
+        // Handle list item clicks
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Apartment selectedApartment = apartments.get(position);
+                LatLng location = selectedApartment.getLocation();
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 6f));
+            }
+        });
 
         return rootView;
     }
@@ -46,20 +68,14 @@ public class ApartmentsFragment extends Fragment implements OnMapReadyCallback {
         mMap = googleMap;
 
         if (mMap != null) {
-            // Sample coordinates for demonstration purposes
-            List<LatLng> apartmentLocations = new ArrayList<>();
-            apartmentLocations.add(new LatLng(35.2271, -80.8431)); // Charlotte, NC
-            apartmentLocations.add(new LatLng(35.2072, -80.8294)); // Another apartment in Charlotte, NC
-            // Add more apartment coordinates as needed
+            mMap.setOnMarkerClickListener(this);
 
-            // Add markers for each apartment
-            for (LatLng apartmentLocation : apartmentLocations) {
-                mMap.addMarker(new MarkerOptions().position(apartmentLocation).title("Apartment"));
+            for (Apartment apartment : apartments) {
+                mMap.addMarker(new MarkerOptions().position(apartment.getLocation()).title(apartment.getName()));
             }
 
-            // Move camera to the first apartment location
-            if (!apartmentLocations.isEmpty()) {
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(apartmentLocations.get(0), 12f));
+            if (!apartments.isEmpty()) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(apartments.get(0).getLocation(), 12f));
             }
         } else {
             Toast.makeText(getContext(), "Map is not available", Toast.LENGTH_SHORT).show();
@@ -67,13 +83,36 @@ public class ApartmentsFragment extends Fragment implements OnMapReadyCallback {
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
+    public boolean onMarkerClick(Marker marker) {
+        // Handle marker click
+        return false;
+    }
+
+    @Override
+    public void onAttach(Context context) {
         super.onAttach(context);
-        // Check Google Play Services availability
         GoogleApiAvailability googleApiAvailability = GoogleApiAvailability.getInstance();
         int resultCode = googleApiAvailability.isGooglePlayServicesAvailable(context);
         if (resultCode != ConnectionResult.SUCCESS) {
             googleApiAvailability.getErrorDialog(requireActivity(), resultCode, 0).show();
+        }
+    }
+
+    private static class Apartment {
+        private String name;
+        private LatLng location;
+
+        public Apartment(String name, LatLng location) {
+            this.name = name;
+            this.location = location;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public LatLng getLocation() {
+            return location;
         }
     }
 }
