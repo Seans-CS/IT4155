@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="morning_night_options">
+        <item>Morning</item>
+        <item>Night</item>
+    </string-array>
+
+    <string-array name="smoking_options">
+        <item>Smoker</item>
+        <item>Non-Smoker</item>
+    </string-array>
+
+    <string-array name="drinking_options">
+        <item>Drinker</item>
+        <item>Non-Drinker</item>
+    </string-array>
+</resources>
