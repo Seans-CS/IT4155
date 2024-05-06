@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,10 +30,10 @@ import java.util.List;
 public class Match extends Fragment {
 
     private TextView textViewName;
-    private TextView textviewMajor;
-    private TextView textViewGender;
+    private TextView textViewMajor;
+    private ImageView imageViewProfile;
 
-    private static final String TAG = "ProfileFragment";
+    private static final String TAG = "MatchFragment";
 
     private int currentUserIdIndex = 0;
     private List<UserMatch> userList = new ArrayList<>();
@@ -41,14 +43,14 @@ public class Match extends Fragment {
 
     @SuppressLint("MissingInflatedId")
     @Override
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View rootView = inflater.inflate(R.layout.fragment_match, container, false);
 
-        // Initialize TextViews
+        // Initialize TextViews and ImageView
         textViewName = rootView.findViewById(R.id.textViewName);
-        textviewMajor = rootView.findViewById(R.id.textviewMajor);
+        textViewMajor = rootView.findViewById(R.id.textviewMajor);
+        imageViewProfile = rootView.findViewById(R.id.image_profile);
 
         // Initialize Yes and No buttons
         Button btnYes = rootView.findViewById(R.id.btn_yes);
@@ -74,7 +76,8 @@ public class Match extends Fragment {
         btnNo.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 // Increment currentUserIdIndex
                 currentUserIdIndex++;
                 // Display next user
@@ -100,10 +103,11 @@ public class Match extends Fragment {
                 for (DataSnapshot userSnapshot : snapshot.getChildren())
                 {
                     String name = userSnapshot.child("name").getValue(String.class);
+                    String imageUrl = userSnapshot.child("image").getValue(String.class);
+                    String major = userSnapshot.child("major").getValue(String.class);
                     // Retrieve user's questionnaire responses
                     int[] userValues = new int[16];
-                    for (int i = 1; i <= 16; i++)
-                    {
+                    for (int i = 1; i <= 16; i++) {
                         userValues[i - 1] = userSnapshot.child("q" + i).getValue(Integer.class);
                     }
 
@@ -111,7 +115,7 @@ public class Match extends Fragment {
                     int similarityScore = calculateSimilarityScore(userValues);
 
                     // Store user data and similarity score in userList
-                    UserMatch userMatch = new UserMatch(name, similarityScore);
+                    UserMatch userMatch = new UserMatch(name, similarityScore, imageUrl, major);
                     userList.add(userMatch);
                 }
 
@@ -130,7 +134,7 @@ public class Match extends Fragment {
             public void onCancelled(@NonNull DatabaseError error)
             {
                 // Failed to read value
-                Log.w(TAG, "Failed to read value.");
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
     }
@@ -149,6 +153,9 @@ public class Match extends Fragment {
             // Display user information for the next user in the sorted list
             UserMatch user = userList.get(currentUserIdIndex);
             textViewName.setText(user.getName() + " - Similarity: " + user.getSimilarityScore());
+            textViewMajor.setText("Major: " + user.getMajor());
+            // Load and display image
+            Picasso.get().load(user.getImageUrl()).into(imageViewProfile);
         } else
         {
             // Display a message indicating that no users are available
@@ -160,7 +167,8 @@ public class Match extends Fragment {
     {
         // Calculate similarity score between user's values and manual values
         int score = 0;
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i++)
+        {
             if (userValues[i] == manualValues[i])
             {
                 score++;
@@ -169,15 +177,18 @@ public class Match extends Fragment {
         return score;
     }
 
-    class UserMatch
-    {
+    class UserMatch {
         private String name;
         private int similarityScore;
+        private String imageUrl;
+        private String major;
 
-        public UserMatch(String name, int similarityScore)
+        public UserMatch(String name, int similarityScore, String imageUrl, String major)
         {
             this.name = name;
             this.similarityScore = similarityScore;
+            this.imageUrl = imageUrl;
+            this.major = major;
         }
 
         public String getName()
@@ -188,6 +199,16 @@ public class Match extends Fragment {
         public int getSimilarityScore()
         {
             return similarityScore;
+        }
+
+        public String getImageUrl()
+        {
+            return imageUrl;
+        }
+
+        public String getMajor()
+        {
+            return major;
         }
     }
 }
